@@ -1,0 +1,91 @@
+<app-side-nav></app-side-nav>
+<div class="body">
+  <div class="profile-form">
+    <h2>User Profile</h2>
+    <div class="centered-user-profile">
+      <div class="user-profile">
+      </div>
+    </div>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" placeholder="Enter your name">
+        <div *ngIf="profileForm.controls.name.invalid && (profileForm.controls.name.dirty || profileForm.controls.name.touched)">
+          <small *ngIf="profileForm.controls.name.errors?.required">Name is required.</small>
+          <small *ngIf="profileForm.controls.name.errors?.pattern">Please enter only text for name.</small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" formControlName="age" placeholder="Enter your age">
+          <div *ngIf="profileForm.controls.age.invalid && (profileForm.controls.age.dirty || profileForm.controls.age.touched)">
+            <small *ngIf="profileForm.controls.age.errors?.required">Age is required.</small>
+            <small *ngIf="profileForm.controls.age.errors?.pattern">Please enter only numbers for age.</small>
+            <small *ngIf="profileForm.controls.age.errors?.min">Age must be at least 18.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" formControlName="dob">
+          <div *ngIf="profileForm.controls.dob.invalid && (profileForm.controls.dob.dirty || profileForm.controls.dob.touched)">
+            <small *ngIf="profileForm.controls.dob.errors?.required">Date of Birth is required.</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select id="gender" formControlName="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <div *ngIf="profileForm.controls.gender.invalid && (profileForm.controls.gender.dirty || profileForm.controls.gender.touched)">
+            <small *ngIf="profileForm.controls.gender.errors?.required">Gender is required.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+          <div *ngIf="profileForm.controls.email.invalid && (profileForm.controls.email.dirty || profileForm.controls.email.touched)">
+            <small *ngIf="profileForm.controls.email.errors?.required">Email is required.</small>
+            <small *ngIf="profileForm.controls.email.errors?.email">Please enter a valid email address.</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="occupation">Occupation:</label>
+          <input type="text" id="occupation" formControlName="occupation" placeholder="Enter your occupation">
+          <div *ngIf="profileForm.controls.occupation.invalid && (profileForm.controls.occupation.dirty || profileForm.controls.occupation.touched)">
+            <small *ngIf="profileForm.controls.occupation.errors?.required">Occupation is required.</small>
+            <small *ngIf="profileForm.controls.occupation.errors?.pattern">Please enter only text for occupation.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact:</label>
+          <input type="text" id="contact" formControlName="contact" placeholder="Enter your contact number">
+          <div *ngIf="profileForm.controls.contact.invalid && (profileForm.controls.contact.dirty || profileForm.controls.contact.touched)">
+            <small *ngIf="profileForm.controls.contact.errors?.required">Contact is required.</small>
+            <small *ngIf="profileForm.controls.contact.errors?.pattern">Please enter only numbers for contact.</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" id="address" formControlName="address" placeholder="Enter your address">
+          <div *ngIf="profileForm.controls.address.invalid && (profileForm.controls.address.dirty || profileForm.controls.address.touched)">
+            <small *ngIf="profileForm.controls.address.errors?.required">Address is required.</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
